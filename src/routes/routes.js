@@ -1,9 +1,10 @@
 import { Router } from "express";
-import LiveMatch from "../controllers/LiveMatchController.js";
+import { liveMatchController } from "../controllers/liveMatchController.js";
 
 const routes = Router();
 
-routes.get("/live-match", LiveMatch.getAll);
-routes.post("/live-match", LiveMatch.create);
+routes.get("/live-match", (req, res) => {
+  liveMatchController.get(req, res);
+});
 
 export default routes;
