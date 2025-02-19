@@ -1,23 +1,81 @@
-# API REST Node Football
+# Live Match API
 
-## Descrição
-A API REST Node Football é uma aplicação que fornece informações sobre jogos de futebol em tempo real, tabelas de classificação, próximos jogos e outras estatísticas relacionadas ao futebol. Desenvolvida em Node.js, oferece uma maneira simples e eficiente de acessar dados atualizados sobre diferentes competições de futebol.
+## Description
+This project is a Node.js API that fetches live football match data from the Sofascore API. The data is normalized before being returned to the client.
 
-## Recursos Principais
-- Retorno de jogos ao vivo.
-- Tabelas de classificação atualizadas.
-- Informações sobre próximos jogos.
-- Estatísticas detalhadas sobre equipes e jogadores.
-- API fácil de usar com endpoints bem documentados.
+## Features
+- Fetches live football match information.
+- Normalizes the data into a standardized format.
+- Returns the normalized data to the client via an HTTP route.
 
-## Como Usar
-1. Clone o repositório: `git clone https://github.com/DevEduardoSouza/api-rest-node-football.git`
-2. Instale as dependências: `npm install`
-3. Inicie o servidor: `npm start`
-4. Acesse a API usando os endpoints fornecidos na documentação.
+## Technologies Used
+- **Node.js**: Server-side JavaScript runtime.
+- **Express**: Framework for building REST APIs.
+- **Fetch API**: Used to make HTTP requests to the Sofascore API.
 
-## Contribuição
-Contribuições são bem-vindas! Se você deseja contribuir para o desenvolvimento da API REST Node Football, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+## Installation & Execution
+### 1. Clone the repository
+```sh
+git clone https://github.com/DevEduardoSouza/api-rest-node-football.git
+cd api-rest-node-football
+```
 
-## Licença
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
+### 2. Install dependencies
+```sh
+npm install
+```
+
+### 3. Start the server
+```sh
+npm start
+```
+
+The server will be running at `http://localhost:8000` (or the configured port).
+
+## API Usage
+### **Endpoint: Get live matches**
+**URL:** `/live-match`
+**Method:** `GET`
+**Response:**
+```json
+[
+  {
+    "id": 123,
+    "tournament": "Premier League",
+    "slug": "premier-league",
+    "category": "England",
+    "season": "2024",
+    "roundInfo": "Round 5",
+    "status": "1st Half",
+    "homeTeam": {
+      "name": "Manchester United",
+      "score": 1
+    },
+    "awayTeam": {
+      "name": "Chelsea",
+      "score": 0
+    },
+    "statusTime": {
+      "timestamp": 1712345678
+    }
+  }
+]
+```
+
+## Project Structure
+```
+/live-match-api
+│── /src
+│   ├── controllers
+│   │   ├── liveMatchController.js  # API Controller
+│   ├── services
+│   │   ├── liveMatchService.js     # Logic for fetching and normalizing data
+│   ├── routes
+│   │   ├── routes.js               # Route definitions
+│── index.js                        # Main entry file
+│── package.json                    # Project dependencies
+```
+
+## Contact
+For questions or suggestions, contact me
+
