@@ -27,7 +27,7 @@ npm install
 
 ### 3. Start the server
 ```sh
-npm start
+npm run dev
 ```
 
 The server will be running at `http://localhost:3000/api/` (or the configured port).
