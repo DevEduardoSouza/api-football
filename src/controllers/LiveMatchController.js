@@ -1,27 +1,12 @@
-import LiveMatchRepository from "../repositories/LiveMatchRepository.js";
+import { liveMatchService } from "../services/liveMatchService.js";
 
-class LiveMatch {
-  async getAll(req, res) {
-    res.json({ msg: "Todos os jogos ao vivo" });
-  }
-
-  async create(req, res) {
-    const liveMatch = req.body;
-
+export const liveMatchController = {
+  async get(req, res) {
     try {
-      if (!liveMatch) {
-        throw new Error("Erro: nenhum dado fornecido");
-      }
-
-      const createdMatch = await LiveMatchRepository.create(liveMatch);
-      res
-        .status(201)
-        .json({ msg: "Partida criada com sucesso", data: createdMatch });
+      const matches = await liveMatchService.getLive();
+      res.json(matches);
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ error: "Error fetching live matches" });
     }
-  }
-}
-
-export default new LiveMatch();
+  },
+};

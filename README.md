@@ -30,7 +30,7 @@ npm install
 npm start
 ```
 
-The server will be running at `http://localhost:8000` (or the configured port).
+The server will be running at `http://localhost:3000/api/` (or the configured port).
 
 ## API Usage
 ### **Endpoint: Get live matches**
